@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title> BookFlod Books</title>
+    </head>
+    <body>
+        <h1> Here is an information page about books! </h1>
+            {% for book in books %}
+                <p> Title: {{book.title}} <br>
+                Author: {{book.author}} <br>
+                Genre: {{book.genre}} <br>
+                Price: {{book.price}} <br>
+                ISBN: {{book.isbn}} <br>
+                Date Published: {{book.published}} <br>
+                Language: {{book.language}} </p>
+                <br>
+            {% endfor %}
+
+        </p>
+    </body>
+</html>

@@ -51,7 +51,7 @@ class UserProfile(models.Model) :
     books_read = models.ManyToManyField(Book, related_name = 'read_it')
     books_wanted = models.ManyToManyField(Book, related_name = 'want_it')
     genre = models.ManyToManyField(Genre)
-    langugaes = models.ManyToManyField(Language)
+    languages = models.ManyToManyField(Language)
 
 
     def __str__(self):

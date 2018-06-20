@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title> BookFlod UserProfiles</title>
+    </head>
+    <body>
+        <h1> Here is an information page about the users on this system! </h1>
+            {% for profile in profiles %}
+                <p>
+                    Name: {{profile.user.get_full_name}} <br>
+                    Date of Birth: {{profile.dob}} <br>
+                    Country: {{profile.country}} <br>
+                    Books Read:
+                        {% for book in profile.books_read.all %}
+                            {{book.title}},
+                        {% endfor %}
+                    <br>
+                    Books Wanted:
+                        {% for book in profile.books_wanted.all %}
+                            {{book.title}},
+                        {% endfor %}
+                    <br>
+                    Genre:
+                        {% for genre in profile.genre.all %}
+                            {{genre.name}},
+                        {% endfor %}
+                    <br>
+                    Languages:
+                        {% for language in profile.languages.all %}
+                            {{language.name}},
+                        {% endfor %}
+                    <br>
+                </p>
+                <br>
+            {% endfor %}
+
+        </p>
+    </body>
+</html>
