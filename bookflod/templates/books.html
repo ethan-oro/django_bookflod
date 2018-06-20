@@ -2,6 +2,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
+{% load staticfiles %}
+
     {% for book in book_list %}
         <p> <a href="{% url 'bookdetail' pk=book.id %}">{{book.title}}</p>
     {% endfor %}
