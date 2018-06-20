@@ -1,10 +1,9 @@
-<html>
-    <head>
-        <title> BookFlod UserProfiles</title>
-    </head>
-    <body>
+{% extends 'base.html' %}
+{% block content %}
         <h1> Here is an information page about the users on this system! </h1>
-            {% for profile in profiles %}
+
+
+            {% for profile in userprofile_list %}
                 <p>
                     Name: {{profile.user.get_full_name}} <br>
                     Date of Birth: {{profile.dob}} <br>
@@ -34,5 +33,4 @@
             {% endfor %}
 
         </p>
-    </body>
-</html>
+{% endblock %}

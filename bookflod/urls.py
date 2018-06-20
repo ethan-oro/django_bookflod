@@ -1,11 +1,11 @@
 from django.contrib import admin
 from django.urls import path
-from bookflod.views import home, books, user_profiles
-
-app_name = "bookflod"
+from bookflod import views
 
 urlpatterns = [
-    path('', home),
-    path('books', books, name = 'books'),
-    path('userprofiles', user_profiles),
+    path('', views.HomeView.as_view(), name='home'),
+    path('books', views.BookList.as_view(), name='books'),
+    path('books/add', views.BookCreate.as_view(), name="addbook"),
+    path('books/<pk>', views.BookDetail.as_view(), name='bookdetail'),
+    path('userprofiles', views.UserList.as_view(), name='userprofiles'),
 ]

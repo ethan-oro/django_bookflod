@@ -1,17 +1,25 @@
 from django.shortcuts import render
+from django.views.generic import View, DetailView, ListView
+from django.views.generic.edit import CreateView
 from bookflod.models import UserProfile, Book
 #series of funciton / classea that take data and display them on the page
 
+class HomeView(ListView) :
+    model = UserProfile
+    template_name ='home.html'
 
-def books(request) :
-    all_books = Book.objects.all()
-    data = { 'books' : all_books }
-    return render(request, 'books.html', data)
+class UserList(ListView) :
+    model = UserProfile
+    template_name='userprofiles.html'
 
-def home(request) :
-    return render(request, 'home.html')
+class BookView(View) :
+    model = Book
 
-def user_profiles(request) :
-    user_profiles = UserProfile.objects.all()
-    data = { 'profiles' : user_profiles }
-    return render(request, 'userprofiles.html', data)
+class BookList(BookView, ListView) :
+    template_name='books.html'
+
+class BookDetail(BookView, DetailView) :
+    pass
+
+class BookCreate(BookView, CreateView) :
+    fields = ['title', 'author', 'genre', 'isbn', 'language']

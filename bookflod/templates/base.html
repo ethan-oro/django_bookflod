@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title> BookFlod Book</title>
+    </head>
+    <body>
+        <h3>
+            Get to your other favorite pages:
+            <a href= "{% url 'home' %}" > Home</a>
+            &nbsp;
+            <a href= "{% url 'books' %}" > Books</a>
+            &nbsp;
+            <a href= "{% url 'userprofiles' %}" > User Profiles</a>
+        </h3>
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+</html>

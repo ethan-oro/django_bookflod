@@ -1,10 +1,6 @@
-<html>
-    <head>
-        <title> BookFlod </title>
-    </head>
-    <body>
+{% extends 'base.html' %}
+{% block content %}
         <h1> Welcome to BookFlod </h1>
+
         <p> we hope your stay is nice :)</p>
-        <a href= "{% url 'books' %}" > books </a>
-    </body>
-</html>
+{% endblock %}
