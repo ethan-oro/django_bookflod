@@ -8,11 +8,19 @@ class HomeView(ListView) :
     model = UserProfile
     template_name ='home.html'
 
-class UserList(ListView) :
+class UserView(View) :
     model = UserProfile
+
+class UserList(UserView, ListView) :
     template_name='userprofiles.html'
 
-class BookView(View) :
+class UserDetail(UserView, DetailView) :
+    pass
+
+class UserCreate(UserView, CreateView) :
+    fields = ['user', 'dob', 'country', 'books_read', 'books_wanted', 'genre', 'languages']
+
+class BookView(UserView, View) :
     model = Book
 
 class BookList(BookView, ListView) :

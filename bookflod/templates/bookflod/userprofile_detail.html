@@ -1,36 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
-        <h1> Here is an information page about the users on this system! </h1>
-
-
-            {% for profile in userprofile_list %}
+        <h1> Here is an information page about {{userprofile.name}}! </h1>
                 <p>
-                    Name: {{profile.user.get_full_name}} <br>
-                    Date of Birth: {{profile.dob}} <br>
-                    Country: {{profile.country}} <br>
+                    Name: {{userprofile.user.get_full_name}} <br>
+                    Date of Birth: {{userprofile.dob}} <br>
+                    Country: {{userprofile.country}} <br>
                     Books Read:
-                        {% for book in profile.books_read.all %}
+                        {% for book in userprofile.books_read.all %}
                             {{book.title}},
                         {% endfor %}
                     <br>
                     Books Wanted:
-                        {% for book in profile.books_wanted.all %}
+                        {% for book in userprofile.books_wanted.all %}
                             {{book.title}},
                         {% endfor %}
                     <br>
                     Genre:
-                        {% for genre in profile.genre.all %}
+                        {% for genre in userprofile.genre.all %}
                             {{genre.name}},
                         {% endfor %}
                     <br>
                     Languages:
-                        {% for language in profile.languages.all %}
+                        {% for language in userprofile.languages.all %}
                             {{language.name}},
                         {% endfor %}
                     <br>
                 </p>
-            {% endfor %}
-        <p>
-            <a href="{% url 'usercreate' %}">Add User</a>
+                <br>
         </p>
 {% endblock %}

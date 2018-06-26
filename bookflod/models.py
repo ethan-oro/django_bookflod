@@ -60,3 +60,6 @@ class UserProfile(models.Model) :
 
     def __str__(self):
         return self.user.get_full_name()
+
+    def get_absolute_url(self) :
+        return reverse('userprofiledetail', kwargs={'pk' : self.id})
